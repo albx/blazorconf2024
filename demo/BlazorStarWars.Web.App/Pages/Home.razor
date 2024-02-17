@@ -1,11 +1,34 @@
 ﻿@page "/"
+@inject BlazorStarWars.Web.App.Client.IStarWarsClient Client
 
 <PageTitle>Star Wars movies</PageTitle>
 
 <h1>Star wars movies</h1>
 
 <div class="row">
-    <div class="col-md-12">
-        <h2>Put your movies list here...</h2>
-    </div>
+    <UseGetAllMovies NumberOfItems="10" Context="result" Strategy="StrawberryShake.ExecutionStrategy.CacheFirst">
+        <ChildContent>
+            @foreach (var movie in result.AllFilms!.Films!)
+            {
+                <div class="col-md-4 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Ep. @movie.EpisodeID - @movie.Title</h5>
+                            <p class="card-text">directed by @movie.Director</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </ChildContent>
+        <LoadingContent>
+            <div class="col-md-12">Loading...</div>
+        </LoadingContent>
+        <ErrorContent>
+            <div class="col-md-12">
+                <div class="alert alert-danger">
+                    There was an error loading the movies
+                </div>
+            </div>
+        </ErrorContent>
+    </UseGetAllMovies>
 </div>

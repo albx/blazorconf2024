@@ -1,0 +1,21 @@
+query GetAllMovies ($numberOfItems: Int, $nextPageCursor: String, $previousPageCursor: String) {
+	allFilms(first: $numberOfItems, after: $nextPageCursor, before: $previousPageCursor) {
+		films {
+			...MovieListItem
+		},
+		pageInfo {
+			hasNextPage,
+			hasPreviousPage,
+			startCursor,
+			endCursor
+		}
+	}
+}
+
+fragment MovieListItem on Film {
+	id,
+	title,
+	episodeID,
+	director,
+	created
+}

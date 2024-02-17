@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "schema": [
+        "BlazorStarWars.Web.App/schema.graphql"
+      ],
+      "documents": [
+        "BlazorStarWars.Web.App/**/*.graphql"
+      ]
+    }
+  ]
+}
