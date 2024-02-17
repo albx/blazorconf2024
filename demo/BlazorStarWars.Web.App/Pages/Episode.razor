@@ -1,0 +1,23 @@
+﻿@page "/episode/{id}"
+
+<PageTitle>Episode page</PageTitle>
+
+<h1>Episode page</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <EpisodeRating EpisodeId="@Id" />
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Put episode detail here</h2>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+}
