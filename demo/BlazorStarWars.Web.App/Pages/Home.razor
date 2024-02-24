@@ -1,0 +1,28 @@
+﻿@page "/"
+
+<PageTitle>Star Wars movies</PageTitle>
+
+<h1>Star wars movies</h1>
+
+<div class="row">
+    <UseGetAllMovies NumberOfItems="10" Context="result" Strategy="StrawberryShake.ExecutionStrategy.CacheFirst">
+        <ChildContent>
+            @foreach (var movie in result.AllFilms!.Films!)
+            {
+                <div class="col-md-4 mb-2">
+                    <MovieCard Movie="@movie" />
+                </div>
+            }
+        </ChildContent>
+        <LoadingContent>
+            <div class="col-md-12">Loading...</div>
+        </LoadingContent>
+        <ErrorContent>
+            <div class="col-md-12">
+                <div class="alert alert-danger">
+                    There was an error loading the movies
+                </div>
+            </div>
+        </ErrorContent>
+    </UseGetAllMovies>
+</div>

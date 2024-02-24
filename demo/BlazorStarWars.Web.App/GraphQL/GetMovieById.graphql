@@ -1,0 +1,45 @@
+query MovieById($filmId: ID) {
+  film(id: $filmId) {
+    ...MovieDetail
+  }
+}
+
+fragment MovieDetail on Film{
+    episodeID
+    title
+    director
+    releaseDate
+    producers
+    characterConnection {
+      characters {
+        ...Character
+      }
+    }
+    starshipConnection {
+      starships {
+        ...Starhip
+      }
+    }
+    vehicleConnection {
+      vehicles {
+        ...Vehicle
+      }
+    }
+}
+
+fragment Character on Person {
+    name,
+    homeworld {
+        name
+    }
+}
+
+fragment Starhip on Starship {
+    name,
+    model
+}
+
+fragment Vehicle on Vehicle {
+    name,
+    model
+}

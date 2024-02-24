@@ -1,0 +1,20 @@
+﻿<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Ep. @Movie.EpisodeID - @Movie.Title</h5>
+        <p class="card-text">directed by @Movie.Director</p>
+
+        @if (!string.IsNullOrEmpty(Movie.ReleaseDate))
+        {
+            <p class="card-text">
+                Released on @DateOnly.Parse(Movie.ReleaseDate)
+            </p>
+        }
+
+        <a href="episode/@Movie.Id" class="btn btn-primary">Read more</a>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public BlazorStarWars.Web.App.Client.IMovieListItem Movie { get; set; } = default!;
+}

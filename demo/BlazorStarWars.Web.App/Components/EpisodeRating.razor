@@ -1,0 +1,17 @@
+﻿<div class="rating">
+    <input type="radio" name="rating" value="5" id="5" @onclick="@(() => RateEpisodeAsync(5))"><label for="5">☆</label>
+    <input type="radio" name="rating" value="4" id="4" @onclick="@(() => RateEpisodeAsync(4))"><label for="4">☆</label>
+    <input type="radio" name="rating" value="3" id="3" @onclick="@(() => RateEpisodeAsync(3))"><label for="3">☆</label>
+    <input type="radio" name="rating" value="2" id="2" @onclick="@(() => RateEpisodeAsync(2))"><label for="2">☆</label>
+    <input type="radio" name="rating" value="1" id="1" @onclick="@(() => RateEpisodeAsync(1))"><label for="1">☆</label>
+</div>
+
+@code {
+    [Parameter]
+    public string EpisodeId { get; set; } = string.Empty;
+
+    private async Task RateEpisodeAsync(int rate)
+    {
+        await Task.Delay(1000); // Put mutation call here...
+    }
+}

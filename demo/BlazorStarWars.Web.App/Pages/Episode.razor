@@ -1,0 +1,100 @@
+﻿@page "/episode/{id}"
+@using BlazorStarWars.Web.App.Client
+@inject IStarWarsClient StarWarsClient
+
+<PageTitle>@(pageTitle ?? "Episode page")</PageTitle>
+
+@if (movie is null)
+{
+    <h1>Loading...</h1>
+}
+else
+{
+    <h1>@pageTitle</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <EpisodeRating EpisodeId="@Id" />
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <fieldset>
+                <p>
+                    <strong>Directed by</strong>: @movie.Director
+                </p>
+                <p>
+                    <strong>Produced by</strong>: @string.Join(", ", movie.Producers ?? [])
+                </p>
+            </fieldset>
+
+            @if (movie.CharacterConnection?.Characters is not null)
+            {
+                <fieldset>
+                    <legend>Characters</legend>
+
+                    <div class="row">
+                        @foreach (var character in movie.CharacterConnection.Characters)
+                        {
+                            <div class="col-md-3 mb-2">
+                                <MovieCharacter Character="character" />
+                            </div>
+                        }
+                    </div>
+                </fieldset>
+            }
+
+            @if (movie.StarshipConnection?.Starships is not null)
+            {
+                <fieldset>
+                    <legend>Starships</legend>
+
+                    <div class="row">
+                        @foreach (var starship in movie.StarshipConnection.Starships)
+                        {
+                            <div class="col-md-3 mb-2">
+                                <MovieStarship Starship="starship" />
+                            </div>
+                        }
+                    </div>
+                </fieldset>
+            }
+
+            @if (movie.VehicleConnection?.Vehicles is not null)
+            {
+                <fieldset>
+                    <legend>Vehicles</legend>
+
+                    <div class="row">
+                        @foreach (var vehicle in movie.VehicleConnection.Vehicles)
+                        {
+                            <div class="col-md-3 mb-2">
+                                <MovieVehicle Vehicle="vehicle" />
+                            </div>
+                        }
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+}
+
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+
+    private IMovieDetail? movie = null;
+
+    private string? pageTitle = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await StarWarsClient.MovieById.ExecuteAsync(filmId: Id);
+        movie = result?.Data?.Film;
+
+        pageTitle = $"Ep. {movie!.EpisodeID} - {movie!.Title}";
+    }
+}
