@@ -1,5 +1,4 @@
 ﻿@page "/"
-@inject BlazorStarWars.Web.App.Client.IStarWarsClient Client
 
 <PageTitle>Star Wars movies</PageTitle>
 
@@ -11,12 +10,7 @@
             @foreach (var movie in result.AllFilms!.Films!)
             {
                 <div class="col-md-4 mb-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Ep. @movie.EpisodeID - @movie.Title</h5>
-                            <p class="card-text">directed by @movie.Director</p>
-                        </div>
-                    </div>
+                    <MovieCard Movie="@movie" />
                 </div>
             }
         </ChildContent>

@@ -17,5 +17,5 @@ fragment MovieListItem on Film {
 	title,
 	episodeID,
 	director,
-	created
+	releaseDate
 }

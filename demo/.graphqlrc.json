@@ -7,6 +7,14 @@
       "documents": [
         "BlazorStarWars.Web.App/**/*.graphql"
       ]
+    },
+    {
+      "schema": [
+        "BlazorStarWars.Web.App/bin/Debug/net8.0/schema.graphql"
+      ],
+      "documents": [
+        "BlazorStarWars.Web.App/bin/Debug/net8.0/**/*.graphql"
+      ]
     }
   ]
 }
