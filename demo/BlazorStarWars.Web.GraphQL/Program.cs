@@ -10,7 +10,8 @@ builder.Services.AddDbContext<StarWarsRatingDbContext>(
 builder.Services
     .AddGraphQLServer()
     .RegisterDbContext<StarWarsRatingDbContext>(DbContextKind.Resolver)
-    .AddQueryType<Queries>();
+    .AddQueryType<Queries>()
+    .AddMutationType<Mutations>();
 
 var app = builder.Build();
 
