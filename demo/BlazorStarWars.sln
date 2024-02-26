@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorStarWars.Web.App", "BlazorStarWars.Web.App\BlazorStarWars.Web.App.csproj", "{97986F3A-7E6E-455D-978E-D127F0E3021B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorStarWars.Web.GraphQL", "BlazorStarWars.Web.GraphQL\BlazorStarWars.Web.GraphQL.csproj", "{61A3B8D4-4039-44DC-940C-388C71914C2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{97986F3A-7E6E-455D-978E-D127F0E3021B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97986F3A-7E6E-455D-978E-D127F0E3021B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97986F3A-7E6E-455D-978E-D127F0E3021B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A3B8D4-4039-44DC-940C-388C71914C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A3B8D4-4039-44DC-940C-388C71914C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A3B8D4-4039-44DC-940C-388C71914C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A3B8D4-4039-44DC-940C-388C71914C2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
