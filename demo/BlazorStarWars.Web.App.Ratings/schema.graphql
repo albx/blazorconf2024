@@ -1,6 +1,7 @@
 schema {
   query: Queries
   mutation: Mutations
+  subscription: Subscriptions
 }
 
 type Queries {
@@ -9,6 +10,15 @@ type Queries {
 
 type Mutations {
   rateEpisode(rate: RateEpisodeInput!): RateEpisodePayload!
+}
+
+type Subscriptions {
+  episodeRated(episodeId: String!): EpisodeRatedEvent!
+}
+
+type EpisodeRatedEvent {
+  average: Int!
+  numberOfRates: Int!
 }
 
 input RateEpisodeInput {

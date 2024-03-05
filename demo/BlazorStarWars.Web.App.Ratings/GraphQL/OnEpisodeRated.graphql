@@ -1,0 +1,6 @@
+subscription OnEpisodeRated($episodeId: String!) {
+	episodeRated(episodeId: $episodeId) {
+		average,
+		numberOfRates
+	}
+}

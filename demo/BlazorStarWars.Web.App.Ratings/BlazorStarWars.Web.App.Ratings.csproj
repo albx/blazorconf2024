@@ -9,6 +9,7 @@
   <ItemGroup>
     <GraphQL Remove="graphql\AddRate.graphql" />
     <GraphQL Remove="graphql\GetRatingsByEpisode.graphql" />
+    <GraphQL Remove="graphql\OnEpisodeRated.graphql" />
   </ItemGroup>
 
 

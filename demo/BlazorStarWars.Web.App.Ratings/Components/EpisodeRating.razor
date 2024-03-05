@@ -40,6 +40,15 @@
             totalNumberOfRates = rates.Count;
         }
 
+        RatingClient.OnEpisodeRated
+            .Watch(EpisodeId)
+            .Subscribe(result =>
+            {
+                averageRate = result.Data?.EpisodeRated.Average ?? 0;
+                totalNumberOfRates = result.Data?.EpisodeRated.NumberOfRates ?? 0;
+
+                StateHasChanged();
+            });
     }
 
     private async Task RateEpisodeAsync(int rate)

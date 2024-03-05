@@ -13,7 +13,8 @@ builder.Services
 
 builder.Services
     .AddRatingClient()
-    .ConfigureHttpClient(client => client.BaseAddress = new Uri("https://localhost:7221/graphql"));
+    .ConfigureHttpClient(client => client.BaseAddress = new Uri("https://localhost:7221/graphql"))
+    .ConfigureWebSocketClient(client => client.Uri = new Uri("wss://localhost:7221/graphql"));
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
