@@ -1,0 +1,29 @@
+schema {
+  query: Queries
+  mutation: Mutations
+}
+
+type Queries {
+  ratings(episodeId: String!): [EpisodeRating!]!
+}
+
+type Mutations {
+  rateEpisode(rate: RateEpisodeInput!): RateEpisodePayload!
+}
+
+input RateEpisodeInput {
+  episodeId: String!
+  rate: Int!
+}
+
+type RateEpisodePayload {
+  episodeId: String!
+  numberOfRates: Int!
+  average: Int!
+}
+
+type EpisodeRating {
+  id: Int!
+  episodeId: String!
+  rate: Int!
+}

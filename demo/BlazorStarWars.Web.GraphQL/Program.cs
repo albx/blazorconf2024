@@ -13,7 +13,14 @@ builder.Services
     .AddQueryType<Queries>()
     .AddMutationType<Mutations>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 var app = builder.Build();
+
+app.UseCors();
 
 app.MapGet("/", () => "Hello BlazorConf 2024!");
 app.MapGraphQL();

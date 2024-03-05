@@ -9,11 +9,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.2" PrivateAssets="all" />
-    <PackageReference Include="StrawberryShake.Blazor" Version="13.8.1" />
+    <PackageReference Include="StrawberryShake.Blazor" Version="13.9.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="GraphQL\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorStarWars.Web.App.Ratings\BlazorStarWars.Web.App.Ratings.csproj" />
   </ItemGroup>
 
 </Project>

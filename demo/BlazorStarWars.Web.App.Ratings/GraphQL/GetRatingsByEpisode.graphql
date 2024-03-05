@@ -1,0 +1,5 @@
+query GetRatingsByEpisode($episodeId: String!) {
+  ratings(episodeId: $episodeId){
+    rate
+  }
+}
