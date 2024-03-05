@@ -1,0 +1,6 @@
+mutation AddRate($episodeId: String!, $rate: Int!) {
+  rateEpisode (rate: {episodeId: $episodeId, rate: $rate}) {
+    average,
+    numberOfRates
+  }
+}
