@@ -9,6 +9,7 @@
   <ItemGroup>
     <GraphQL Remove="graphql\AddRate.graphql" />
     <GraphQL Remove="graphql\GetRatingsByEpisode.graphql" />
+    <GraphQL Remove="graphql\OnEpisodeRated.graphql" />
   </ItemGroup>
 
 
@@ -17,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.3" />
     <PackageReference Include="StrawberryShake.Blazor" Version="13.9.0" />
   </ItemGroup>
 

@@ -9,9 +9,11 @@ builder.Services.AddDbContext<StarWarsRatingDbContext>(
 
 builder.Services
     .AddGraphQLServer()
+    .AddInMemorySubscriptions()
     .RegisterDbContext<StarWarsRatingDbContext>(DbContextKind.Resolver)
     .AddQueryType<Queries>()
-    .AddMutationType<Mutations>();
+    .AddMutationType<Mutations>()
+    .AddSubscriptionType<Subscriptions>();
 
 builder.Services.AddCors(options =>
 {
@@ -20,6 +22,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseWebSockets();
 app.UseCors();
 
 app.MapGet("/", () => "Hello BlazorConf 2024!");
